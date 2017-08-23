@@ -30,8 +30,11 @@ import Foxdriver from 'foxdriver'
     })
 
     // enable actor
-    await tab.console.enable()
-    const logs = await tab.console.getLogs()
+    await tab.console.startListeners()
+    // wait until page is loaded
+    await new Promise((resolve) => setTimeout(resolve, 3000))
+    // receive logs and page errors
+    const logs = await tab.console.getCachedMessages()
     console.log(logs)
 })()
 ```

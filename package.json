@@ -40,6 +40,7 @@
   "dependencies": {
     "fs-extra": "^4.0.1",
     "get-port": "^3.2.0",
+    "npmlog": "^4.1.2",
     "safe-buffer": "^5.1.1",
     "tcp-port-used": "^0.1.2"
   },
