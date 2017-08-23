@@ -1,0 +1,66 @@
+{
+  "name": "foxdriver",
+  "version": "0.0.0",
+  "author": "Christian Bromann <christian@saucelabs.com>",
+  "description": "Foxdriver is a Node library which provides a high-level API to control Firefox over the Remote Debugging Protocol",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/saucelabs/foxdriver#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saucelabs/foxdriver.git"
+  },
+  "keywords": [
+    "firefox",
+    "remote",
+    "debugging",
+    "debug",
+    "protocol",
+    "cdp",
+    "devtools"
+  ],
+  "bugs": {
+    "url": "https://github.com/saucelabs/foxdriver/issues"
+  },
+  "main": "build/index.js",
+  "scripts": {
+    "build": "run-s clean compile",
+    "ci": "run-s eslint cover",
+    "clean": "rm -rf ./build",
+    "compile": "babel lib/ -d build/ --ignore config",
+    "eslint": "eslint ./lib/*.js",
+    "release": "np patch",
+    "release:patch": "np patch",
+    "release:minor": "np minor",
+    "release:major": "np major",
+    "test": "run-p test:*",
+    "test:lint": "eslint",
+    "test:unit": "jest",
+    "watch": "npm run compile:node -- --watch"
+  },
+  "dependencies": {
+    "fs-extra": "^4.0.1",
+    "get-port": "^3.2.0",
+    "safe-buffer": "^5.1.1",
+    "tcp-port-used": "^0.1.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^4.4.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "jest": "^20.0.4",
+    "np": "^2.16.0",
+    "npm-run-all": "^4.0.2",
+    "sinon": "^3.2.0"
+  }
+}
