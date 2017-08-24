@@ -35,7 +35,7 @@
     "test": "run-p test:*",
     "test:lint": "eslint",
     "test:unit": "jest",
-    "watch": "npm run compile:node -- --watch"
+    "watch": "npm run compile -- --watch"
   },
   "dependencies": {
     "fs-extra": "^4.0.1",
