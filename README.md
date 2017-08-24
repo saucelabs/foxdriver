@@ -25,7 +25,7 @@ __Example__ - opening page and get console.logs
 import Foxdriver from 'foxdriver'
 
 (async () => {
-    const { browser, tab } = await Foxdriver.launch({
+    const { client, tab } = await Foxdriver.launch({
         url: 'https://www.mozilla.org/en-US'
     })
 
@@ -36,6 +36,30 @@ import Foxdriver from 'foxdriver'
     // receive logs and page errors
     const logs = await tab.console.getCachedMessages()
     console.log(logs)
+
+    // close browser
+    client.close()
+})()
+```
+
+You can also attach yourself to an already running Firefox browser. This requires to start the browser with the `-start-debugger-server=<port>` cli argument and have the following settings set:
+
+- `devtools.chrome.enabled: true`
+- `devtools.debugger.prompt-connection: false`
+- `devtools.debugger.remote-enabled: true`
+
+To attach yourself to the browser you then need to create a Foxdriver instance with the correct port and host and call the `connect()` method:
+
+```js
+import Foxdriver from 'foxdriver'
+
+(async () => {
+    const client = new Foxdriver('localhost', 9222)
+    await client.connect()
+
+    const tabs = await client.getTabs()
+
+    // ...
 })()
 ```
 
