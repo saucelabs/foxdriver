@@ -27,7 +27,7 @@
     "ci": "run-s eslint cover",
     "clean": "rm -rf ./build",
     "compile": "babel lib/ -d build/ --ignore config --source-maps inline",
-    "eslint": "eslint ./lib/*.js",
+    "eslint": "eslint ./lib/**/*.js",
     "release": "np patch",
     "release:patch": "np patch",
     "release:minor": "np minor",
