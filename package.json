@@ -24,7 +24,7 @@
   "main": "build/index.js",
   "scripts": {
     "build": "run-s clean compile",
-    "ci": "run-s eslint cover",
+    "ci": "run-s eslint test:unit:cover",
     "clean": "rm -rf ./build",
     "compile": "babel lib/ -d build/ --ignore config --source-maps inline",
     "eslint": "eslint ./lib/**/*.js",
