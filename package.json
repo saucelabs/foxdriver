@@ -35,6 +35,7 @@
     "test": "run-p test:*",
     "test:lint": "eslint",
     "test:unit": "jest",
+    "test:unit:cover": "jest --coverage",
     "watch": "npm run compile -- --watch"
   },
   "dependencies": {
@@ -63,5 +64,15 @@
     "np": "^2.16.0",
     "npm-run-all": "^4.0.2",
     "sinon": "^3.2.0"
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    }
   }
 }

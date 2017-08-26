@@ -9,9 +9,19 @@ test('transform script properly', () => {
         '(function () { foo }).apply(window, someargs)')
 })
 
+test('transform script function properly', () => {
+    expect(transformEvaluateScript(() => { return 'foobar' }, 'someargs')).toEqual(
+        '(() => {return \'foobar\';}).apply(window, someargs)')
+})
+
 test('transform arguments properly', () => {
-    const args = transformEvaluateArgs([() => 'foobar', 1, '2', false, [1,2,3], {foo: 'bar'}])
+    const args = transformEvaluateArgs([() => 'foobar', 1, '2', false, [1, 2, 3], {foo: 'bar'}])
     expect(args).toEqual('["() => \'foobar\'",1,"2",false,[1,2,3],{"foo":"bar"}]')
+})
+
+test('transform arguments properly if not passed as array', () => {
+    const args = transformEvaluateArgs('foobar')
+    expect(args).toEqual('["foobar"]')
 })
 
 test('creates enhanced listener objects', () => {
@@ -27,6 +37,6 @@ test('unregisteres listener events', () => {
     const listeners = [addEventListener(emitter, 'foobar', handler)]
 
     removeEventListeners(listeners)
-    expect(emitter.removeListener.calledWith('foobar', handler)).toBe(true);
+    expect(emitter.removeListener.calledWith('foobar', handler)).toBe(true)
     expect(listeners).toHaveLength(0)
 })
