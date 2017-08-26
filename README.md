@@ -25,7 +25,7 @@ __Example__ - opening page and get console.logs
 import Foxdriver from 'foxdriver'
 
 (async () => {
-    const { client, tab } = await Foxdriver.launch({
+    const { browser, tab } = await Foxdriver.launch({
         url: 'https://www.mozilla.org/en-US'
     })
 
@@ -38,7 +38,7 @@ import Foxdriver from 'foxdriver'
     console.log(logs)
 
     // close browser
-    client.close()
+    browser.close()
 })()
 ```
 
@@ -54,10 +54,8 @@ To attach yourself to the browser you then need to create a Foxdriver instance w
 import Foxdriver from 'foxdriver'
 
 (async () => {
-    const client = new Foxdriver('localhost', 9222)
-    await client.connect()
-
-    const tabs = await client.getTabs()
+    const { browser, tab } = await Foxdriver.attach('localhost', 9222)
+    const preferences = await browser.preference.getAllPrefs()
 
     // ...
 })()
