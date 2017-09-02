@@ -9,7 +9,8 @@ const client = new EventEmitter()
 client.makeRequest = stub()
 
 const tab = new Tab(client, 'server1.conn1.child6/tab1', {
-    actor: 'sometab'
+    actor: 'sometab',
+    cssUsageActor: 'server1.conn1.child6/cssUsageActor'
 })
 
 test('requests correctly', async () => {
@@ -31,4 +32,9 @@ test('catches right events', (done) => {
     })
     client.emit('message', { from: 'no one', type: 'foobar' })
     client.emit('message', { from: 'server1.conn1.child6/tab1', data: 'yeahh', type: 'foobar' })
+})
+
+test('should allow to create an actor without payload', () => {
+    const tab = new Tab(client, 'server1.conn1.child6/tab1')
+    expect(Object.keys(tab._actors)).toHaveLength(0)
 })
