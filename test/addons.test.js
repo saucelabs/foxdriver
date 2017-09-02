@@ -10,7 +10,7 @@ const addons = new AddonsActor(client, 'server1.conn1.child6/addons1', {
     actor: 'server1.conn1.child6/addons1'
 })
 
-test('can navigate to different url', () => {
+test('can install temporary addon', () => {
     const addonPath = '/path/addon'
     addons.installTemporaryAddon(addonPath)
     expect(client.makeRequest.calledWith(

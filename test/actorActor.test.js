@@ -10,7 +10,7 @@ const actorActor = new ActorActor(client, 'server1.conn1.child6/actorActor1', {
     actor: 'server1.conn1.child6/actorActor1'
 })
 
-test('can navigate to different url', () => {
+test('can unregister actor', () => {
     actorActor.unregister()
     expect(client.makeRequest.calledWith(
         {to: 'server1.conn1.child6/actorActor1', type: 'unregister'}

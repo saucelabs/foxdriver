@@ -10,7 +10,7 @@ const actorRegistry = new ActorRegistry(client, 'server1.conn1.child6/actorRegis
     actor: 'server1.conn1.child6/actorRegistry1'
 })
 
-test('can navigate to different url', () => {
+test('can register actors', () => {
     const sourceText = 'sourceText'
     const filename = 'filename'
     const options = 'options'
