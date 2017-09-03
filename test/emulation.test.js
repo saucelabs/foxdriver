@@ -105,7 +105,7 @@ test('can set user agent overwrites', async () => {
     )).toEqual(true)
 })
 
-test('can get touch events overwrites', async () => {
+test('can get user agent overwrites', async () => {
     client.makeRequest.returns({ userAgent: 'foobar' })
 
     expect(await emulation.getUserAgentOverride()).toEqual('foobar')
@@ -114,7 +114,7 @@ test('can get touch events overwrites', async () => {
     )).toEqual(true)
 })
 
-test('can clear touch events overwrites', async () => {
+test('can clear user agent overwrites', async () => {
     client.makeRequest.returns({ valueChanged: true })
 
     expect(await emulation.clearUserAgentOverride()).toEqual(true)

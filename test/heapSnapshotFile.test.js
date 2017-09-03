@@ -10,7 +10,7 @@ const heapSnapshotFile = new HeapSnapshotFile(client, 'server1.conn1.child6/heap
     actor: 'server1.conn1.child6/heapSnapshotFile'
 })
 
-test('can unregister actor', () => {
+test('can return heap snap shot', () => {
     heapSnapshotFile.getHeapSnapshot(123)
     expect(client.makeRequest.calledWith(
         {to: 'server1.conn1.child6/heapSnapshotFile', type: 'transferHeapSnapshot', snapshotId: 123}
