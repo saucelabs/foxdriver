@@ -46,7 +46,7 @@ test('can get all preferences', async () => {
     )).toEqual(true)
 })
 
-test('can set boolean preference', async () => {
+test('can set boolean preference', () => {
     const name = 'some name'
     const value = false
 
@@ -56,7 +56,7 @@ test('can set boolean preference', async () => {
     )).toEqual(true)
 })
 
-test('can set char preference', async () => {
+test('can set char preference', () => {
     const name = 'some name'
     const value = 'c'
 
@@ -66,7 +66,7 @@ test('can set char preference', async () => {
     )).toEqual(true)
 })
 
-test('can set integer preference', async () => {
+test('can set integer preference', () => {
     const name = 'some name'
     const value = 42
 
@@ -76,7 +76,7 @@ test('can set integer preference', async () => {
     )).toEqual(true)
 })
 
-test('can clear user preference', async () => {
+test('can clear user preference', () => {
     const name = 'myPref'
 
     preference.clearUserPref(name)
