@@ -1,0 +1,20 @@
+Models
+======
+
+-   [LongString](./longstring.md)
+    -   [substring](./longstring.md#substring)
+-   [Highlighter](./highlighter.md)
+    -   [showBoxModel](./highlighter.md#showboxmodel)
+    -   [hideBoxModel](./highlighter.md#hideboxmodel)
+    -   [pick](./highlighter.md#pick)
+    -   [pickAndFocus](./highlighter.md#pickandfocus)
+    -   [cancelPick](./highlighter.md#cancelpick)
+-   [StyleSheet](./stylesheet.md)
+    -   [toggleDisabled](./stylesheet.md#toggledisabled)
+    -   [getText](./stylesheet.md#gettext)
+    -   [getOriginalSources](./stylesheet.md#getoriginalsources)
+    -   [getOriginalLocation](./stylesheet.md#getoriginallocation)
+    -   [getMediaRules](./stylesheet.md#getmediarules)
+    -   [update](./stylesheet.md#update)
+-   [OriginalSource](./originalsource.md)
+    -   [getText](./originalsource.md#gettext-1)

@@ -1,21 +1,17 @@
-Foxdriver [![Build Status](https://travis-ci.com/saucelabs/foxdriver.svg?token=px5tFzamGvYgujeyYVEp&branch=master)](https://travis-ci.com/saucelabs/foxdriver)
-=========
+Foxdriver API v0.1.0
+====================
 
-> Foxdriver is a Node library which provides a high-level API to control Firefox over the Remote Debugging Protocol.
+##### Table of Contents
 
-## Getting Started
+- [Foxdriver](#foxdriver)
+  * [Usage](#usage)
+  * [API](/docs/api)
 
-### Installation
+# Foxdriver
 
-To use Foxdriver in your project, run:
+Foxdriver is a Node library which provides a high-level API to control Firefox over the Remote Debugging Protocol.
 
-```sh
-$ yarn add foxdriver
-# or
-$ npm i foxdriver
-```
-
-### Usage
+## Usage
 
 The Firefox Remote Debugging Protocol consists of multiple actors that provide different methods. The Foxdriver API allows you to launch a Firefox instance and connects to the protocol interface automatically. From there you can access the methods of all actors.
 
@@ -60,7 +56,3 @@ import Foxdriver from 'foxdriver'
     // ...
 })()
 ```
-
-## API
-
-TBD
