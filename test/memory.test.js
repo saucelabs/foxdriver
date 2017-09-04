@@ -127,15 +127,6 @@ test('can measure', () => {
     )).toEqual(true)
 })
 
-test('can resident unique', async () => {
-    client.makeRequest.returns({ residentUnique: 'foobar' })
-
-    expect(await memory.residentUnique()).toEqual('foobar')
-    expect(client.makeRequest.calledWith(
-        {to: 'server1.conn1.child6/memory1', type: 'residentUnique'}
-    )).toEqual(true)
-})
-
 test('can save heap snapshot file', async () => {
     client.makeRequest.returns({ snapshotId: 321 })
     const boundaries = {

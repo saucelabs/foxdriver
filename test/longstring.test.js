@@ -18,10 +18,3 @@ test('can call substring', async () => {
         {to: 'server1.conn1.child6/longstring1', type: 'substring', start: 0, end: 10}
     )).toEqual(true)
 })
-
-test('can release longstring', () => {
-    longstring.release()
-    expect(client.makeRequest.calledWith(
-        {to: 'server1.conn1.child6/longstring1', type: 'release'}
-    )).toEqual(true)
-})

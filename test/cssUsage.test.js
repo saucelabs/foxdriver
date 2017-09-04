@@ -62,12 +62,3 @@ test('can create page report', () => {
         {to: 'server1.conn1.child6/cssUsageActor1', type: 'createPageReport'}
     )).toEqual(true)
 })
-
-test('can create page report', async () => {
-    client.makeRequest.returns({ value: 'foobar' })
-
-    expect(await cssUsageActor._testOnlyVisitedPages()).toEqual('foobar')
-    expect(client.makeRequest.calledWith(
-        {to: 'server1.conn1.child6/cssUsageActor1', type: '_testOnlyVisitedPages'}
-    )).toEqual(true)
-})

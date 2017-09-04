@@ -45,6 +45,7 @@ Every new actor or model should contain inline documentation (jsdoc style) in or
 All tests are located in the [/test](/test) directory and are run by [Jest](https://facebook.github.io/jest/).
 
 - Every feature should be accompanied by a test
+- We enforce 95% test coverage so make sure you test all your branches and functions
 - Every public api event/method should be accompanied by a test
 - Tests should be hermetic. Tests should not depend on external services.
 

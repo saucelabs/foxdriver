@@ -69,10 +69,3 @@ test('can get configurations', async () => {
         {to: 'server1.conn1.child6/performance1', type: 'getConfiguration'}
     )).toEqual(true)
 })
-
-test('can set profiler status interval', () => {
-    performance.setProfilerStatusInterval(10101)
-    expect(client.makeRequest.calledWith(
-        {to: 'server1.conn1.child6/performance1', type: 'setProfilerStatusInterval', interval: 10101}
-    )).toEqual(true)
-})

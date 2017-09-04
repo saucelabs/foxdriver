@@ -36,19 +36,17 @@ test('can clear ddpx overwrite', () => {
 })
 
 test('can set network throtteling', async () => {
-    const options = {
-        offline: false,
-        latency: 0, // ms
-        downloadThroughput: 75000, // byte/s
-        uploadThroughput: 25000, // byte/s
-        connectionType: 'cellular3g'
-    }
+    const downloadThroughput = 75000
+    const uploadThroughput = 25000
+    const latency = 100
     client.makeRequest.returns({ valueChanged: true })
 
-    expect(await emulation.setNetworkThrottling(options)).toEqual(true)
-    expect(client.makeRequest.calledWith(
-        {to: 'server1.conn1.child6/emulation1', type: 'setNetworkThrottling', options}
-    )).toEqual(true)
+    expect(await emulation.setNetworkThrottling(downloadThroughput, uploadThroughput, latency)).toEqual(true)
+    expect(client.makeRequest.calledWith({
+        to: 'server1.conn1.child6/emulation1',
+        type: 'setNetworkThrottling',
+        options: { downloadThroughput, uploadThroughput, latency }
+    })).toEqual(true)
 })
 
 test('can get network throtteling', async () => {
