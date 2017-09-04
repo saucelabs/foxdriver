@@ -63,4 +63,4 @@ import Foxdriver from 'foxdriver'
 
 ## API
 
-TBD
+Please see [API docs](/docs)
