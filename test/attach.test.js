@@ -16,6 +16,7 @@ test('should be able to attach on a running firefox instance', async () => {
     })
 
     const browser = remote({
+        logLevel: 'verbose',
         desiredCapabilities: {
             browserName: 'firefox',
             'moz:firefoxOptions': {
