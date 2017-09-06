@@ -1,9 +1,9 @@
 import { stub } from 'sinon'
 
-import StyleSheets from '../lib/domains/styleSheets'
-import StyleSheet from '../lib/models/stylesheet'
+import StyleSheets from '../../lib/domains/styleSheets'
+import StyleSheet from '../../lib/models/stylesheet'
 
-jest.mock('../lib/logger', () => jest.fn(() => ({ info: () => {} })))
+jest.mock('../../lib/logger', () => jest.fn(() => ({ info: () => {} })))
 
 const client = { makeRequest: stub(), on: () => {} }
 client.makeRequest.returns({})

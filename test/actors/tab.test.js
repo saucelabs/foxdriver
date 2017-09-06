@@ -1,8 +1,8 @@
 import { stub } from 'sinon'
 
-import Tab from '../lib/tab'
+import Tab from '../../lib/tab'
 
-jest.mock('../lib/logger', () => jest.fn(() => ({ info: () => {} })))
+jest.mock('../../lib/logger', () => jest.fn(() => ({ info: () => {} })))
 
 const client = { makeRequest: stub(), on: () => {} }
 client.makeRequest.returns({})
@@ -61,36 +61,36 @@ test('can reload', () => {
 })
 
 test('has available domains registerd', () => {
-    jest.mock('../lib/domains/console', () => jest.fn(() => ({})))
+    jest.mock('../../lib/domains/console', () => jest.fn(() => ({})))
     expect(tab.console).toBeDefined()
 
-    jest.mock('../lib/domains/network', () => jest.fn(() => ({})))
+    jest.mock('../../lib/domains/network', () => jest.fn(() => ({})))
     expect(tab.network).toBeDefined()
 
-    jest.mock('../lib/domains/memory', () => jest.fn(() => ({})))
+    jest.mock('../../lib/domains/memory', () => jest.fn(() => ({})))
     expect(tab.memory).toBeDefined()
 
-    jest.mock('../lib/domains/performance', () => jest.fn(() => ({})))
+    jest.mock('../../lib/domains/performance', () => jest.fn(() => ({})))
     expect(tab.performance).toBeDefined()
 
-    jest.mock('../lib/domains/profiler', () => jest.fn(() => ({})))
+    jest.mock('../../lib/domains/profiler', () => jest.fn(() => ({})))
     expect(tab.profiler).toBeDefined()
 
-    jest.mock('../lib/domains/timeline', () => jest.fn(() => ({})))
+    jest.mock('../../lib/domains/timeline', () => jest.fn(() => ({})))
     expect(tab.timeline).toBeDefined()
 
-    jest.mock('../lib/domains/styleSheets', () => jest.fn(() => ({})))
+    jest.mock('../../lib/domains/styleSheets', () => jest.fn(() => ({})))
     expect(tab.styleSheets).toBeDefined()
 
-    jest.mock('../lib/domains/cssUsage', () => jest.fn(() => ({})))
+    jest.mock('../../lib/domains/cssUsage', () => jest.fn(() => ({})))
     expect(tab.cssUsage).toBeDefined()
 
-    jest.mock('../lib/domains/cssProperties', () => jest.fn(() => ({})))
+    jest.mock('../../lib/domains/cssProperties', () => jest.fn(() => ({})))
     expect(tab.cssProperties).toBeDefined()
 
-    jest.mock('../lib/domains/emulation', () => jest.fn(() => ({})))
+    jest.mock('../../lib/domains/emulation', () => jest.fn(() => ({})))
     expect(tab.emulation).toBeDefined()
 
-    jest.mock('../lib/domains/inspector', () => jest.fn(() => ({})))
+    jest.mock('../../lib/domains/inspector', () => jest.fn(() => ({})))
     expect(tab.inspector).toBeDefined()
 })

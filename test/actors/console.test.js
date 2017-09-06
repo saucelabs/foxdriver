@@ -1,8 +1,8 @@
 import { stub } from 'sinon'
 
-import ConsoleActor from '../lib/domains/console'
+import ConsoleActor from '../../lib/domains/console'
 
-jest.mock('../lib/logger', () => jest.fn(() => ({ info: () => {} })))
+jest.mock('../../lib/logger', () => jest.fn(() => ({ info: () => {} })))
 
 const client = { makeRequest: stub(), on: () => {} }
 client.makeRequest.returns({})

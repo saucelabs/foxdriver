@@ -1,8 +1,8 @@
 import { stub } from 'sinon'
 
-import Memory from '../lib/domains/memory'
+import Memory from '../../lib/domains/memory'
 
-jest.mock('../lib/logger', () => jest.fn(() => ({ info: () => {} })))
+jest.mock('../../lib/logger', () => jest.fn(() => ({ info: () => {} })))
 
 const client = { makeRequest: stub(), on: () => {} }
 client.makeRequest.returns({})

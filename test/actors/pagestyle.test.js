@@ -1,8 +1,8 @@
 import { stub } from 'sinon'
 
-import Pagestyle from '../lib/models/pagestyle'
+import Pagestyle from '../../lib/models/pagestyle'
 
-jest.mock('../lib/logger', () => jest.fn(() => ({ info: () => {} })))
+jest.mock('../../lib/logger', () => jest.fn(() => ({ info: () => {} })))
 
 const client = { makeRequest: stub(), on: () => {} }
 client.makeRequest.returns({})

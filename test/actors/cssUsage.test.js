@@ -1,8 +1,8 @@
 import { stub } from 'sinon'
 
-import CSSUsage from '../lib/domains/cssUsage'
+import CSSUsage from '../../lib/domains/cssUsage'
 
-jest.mock('../lib/logger', () => jest.fn(() => ({ info: () => {} })))
+jest.mock('../../lib/logger', () => jest.fn(() => ({ info: () => {} })))
 
 const client = { makeRequest: stub(), on: () => {} }
 client.makeRequest.returns({})

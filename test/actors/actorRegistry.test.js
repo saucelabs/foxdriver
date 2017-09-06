@@ -1,8 +1,8 @@
 import { stub } from 'sinon'
 
-import ActorRegistry from '../lib/domains/actorRegistry'
+import ActorRegistry from '../../lib/domains/actorRegistry'
 
-jest.mock('../lib/logger', () => jest.fn(() => ({ info: () => {} })))
+jest.mock('../../lib/logger', () => jest.fn(() => ({ info: () => {} })))
 
 const client = { makeRequest: stub(), on: () => {} }
 client.makeRequest.returns({})

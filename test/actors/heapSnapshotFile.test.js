@@ -1,8 +1,8 @@
 import { stub } from 'sinon'
 
-import HeapSnapshotFile from '../lib/domains/heapSnapshotFile'
+import HeapSnapshotFile from '../../lib/domains/heapSnapshotFile'
 
-jest.mock('../lib/logger', () => jest.fn(() => ({ info: () => {} })))
+jest.mock('../../lib/logger', () => jest.fn(() => ({ info: () => {} })))
 
 const client = { makeRequest: stub(), on: () => {} }
 client.makeRequest.returns({})

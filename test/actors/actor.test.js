@@ -1,9 +1,9 @@
 import EventEmitter from 'events'
 import { stub } from 'sinon'
 
-import Tab from '../lib/tab'
+import Tab from '../../lib/tab'
 
-jest.mock('../lib/logger', () => jest.fn(() => ({ info: () => {} })))
+jest.mock('../../lib/logger', () => jest.fn(() => ({ info: () => {} })))
 
 const client = new EventEmitter()
 client.makeRequest = stub()

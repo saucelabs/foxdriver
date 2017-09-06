@@ -1,8 +1,8 @@
 import { stub } from 'sinon'
 
-import LongString from '../lib/models/longString'
+import LongString from '../../lib/models/longString'
 
-jest.mock('../lib/logger', () => jest.fn(() => ({ info: () => {} })))
+jest.mock('../../lib/logger', () => jest.fn(() => ({ info: () => {} })))
 
 const client = { makeRequest: stub(), on: () => {} }
 client.makeRequest.returns({})

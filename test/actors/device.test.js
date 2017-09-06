@@ -1,9 +1,9 @@
 import tmp from 'tmp'
 import { stub } from 'sinon'
 
-import Device from '../lib/domains/device'
+import Device from '../../lib/domains/device'
 
-jest.mock('../lib/logger', () => jest.fn(() => ({ info: () => {} })))
+jest.mock('../../lib/logger', () => jest.fn(() => ({ info: () => {} })))
 
 const client = { makeRequest: stub(), on: () => {} }
 client.makeRequest.returns({})

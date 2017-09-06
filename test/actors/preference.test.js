@@ -1,8 +1,8 @@
 import { stub } from 'sinon'
 
-import Preference from '../lib/domains/preference'
+import Preference from '../../lib/domains/preference'
 
-jest.mock('../lib/logger', () => jest.fn(() => ({ info: () => {} })))
+jest.mock('../../lib/logger', () => jest.fn(() => ({ info: () => {} })))
 
 const client = { makeRequest: stub(), on: () => {} }
 client.makeRequest.returns({})

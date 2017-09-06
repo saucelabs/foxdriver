@@ -1,9 +1,9 @@
 import { stub } from 'sinon'
 
-import Network from '../lib/domains/network'
-import Request from '../lib/models/request'
+import Network from '../../lib/domains/network'
+import Request from '../../lib/models/request'
 
-jest.mock('../lib/logger', () => jest.fn(() => ({ info: () => {} })))
+jest.mock('../../lib/logger', () => jest.fn(() => ({ info: () => {} })))
 
 const client = { makeRequest: stub(), on: () => {} }
 client.makeRequest.returns({})

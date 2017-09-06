@@ -1,10 +1,10 @@
 import { stub } from 'sinon'
 
-import Inspector from '../lib/domains/inspector'
-import Pagestyle from '../lib/models/pagestyle'
-import Highlighter from '../lib/models/highlighter'
+import Inspector from '../../lib/domains/inspector'
+import Pagestyle from '../../lib/models/pagestyle'
+import Highlighter from '../../lib/models/highlighter'
 
-jest.mock('../lib/logger', () => jest.fn(() => ({ info: () => {} })))
+jest.mock('../../lib/logger', () => jest.fn(() => ({ info: () => {} })))
 
 const client = { makeRequest: stub(), on: () => {} }
 client.makeRequest.returns({})

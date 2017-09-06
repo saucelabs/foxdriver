@@ -1,8 +1,8 @@
 import { stub } from 'sinon'
 
-import Profiler from '../lib/domains/profiler'
+import Profiler from '../../lib/domains/profiler'
 
-jest.mock('../lib/logger', () => jest.fn(() => ({ info: () => {} })))
+jest.mock('../../lib/logger', () => jest.fn(() => ({ info: () => {} })))
 
 const client = { makeRequest: stub(), on: () => {} }
 client.makeRequest.returns({})
