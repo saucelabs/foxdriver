@@ -3,6 +3,9 @@ dist: trusty
 node_js:
   - 6.10
 
+addons:
+  firefox: "55.0"
+
 notifications:
   email: false
 
