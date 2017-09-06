@@ -61,18 +61,20 @@
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
+    "firefox-profile": "^1.0.3",
     "jest": "^20.0.4",
     "np": "^2.16.0",
     "npm-run-all": "^4.0.2",
-    "sinon": "^3.2.0"
+    "sinon": "^3.2.0",
+    "webdriverio": "^4.8.0"
   },
   "jest": {
     "coverageThreshold": {
       "global": {
-        "branches": 70,
-        "functions": 92,
-        "lines": 88,
-        "statements": 85
+        "branches": 72,
+        "functions": 93,
+        "lines": 89,
+        "statements": 89
       }
     }
   }
