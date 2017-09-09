@@ -2,7 +2,11 @@ import Foxdriver from '../lib'
 import FirefoxProfile from 'firefox-profile'
 import { remote } from 'webdriverio'
 
-test('should be able to attach on a running firefox instance', async () => {
+let browser
+
+jest.setTimeout(15000)
+
+beforeAll(async () => {
     const fp = new FirefoxProfile()
     fp.setPreference('devtools.debugger.remote-enabled', true)
     fp.setPreference('devtools.chrome.enabled', true)
@@ -15,7 +19,7 @@ test('should be able to attach on a running firefox instance', async () => {
         })
     })
 
-    const browser = remote({
+    browser = remote({
         logLevel: 'verbose',
         desiredCapabilities: {
             browserName: 'firefox',
@@ -25,7 +29,9 @@ test('should be able to attach on a running firefox instance', async () => {
             }
         }
     })
+})
 
+test('should be able to attach on a running firefox instance', async () => {
     // start browser
     await browser.init().url('http://json.org')
 
@@ -35,7 +41,9 @@ test('should be able to attach on a running firefox instance', async () => {
     expect(tabs).toHaveLength(1)
     expect(tabs[0].data.url).toEqual('http://json.org/')
     expect(tabs[0].data.title).toEqual('JSON')
+})
 
+afterAll(async () => {
     // close session
     await browser.end()
 })
