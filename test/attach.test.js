@@ -6,7 +6,7 @@ import Foxdriver from '../lib'
 
 let browser
 
-jest.setTimeout(15000)
+jest.setTimeout(30000)
 
 beforeAll(async () => {
     const fp = new FirefoxProfile()
@@ -33,7 +33,10 @@ beforeAll(async () => {
         }
     })
 
-    Geckodriver.start()
+    const driver = Geckodriver.start()
+    driver.on('message', console.log)
+    driver.on('error', console.error)
+    driver.on('exit', console.error)
 })
 
 test.only('should be able to attach on a running firefox instance', async () => {
