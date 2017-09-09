@@ -63,4 +63,71 @@ import Foxdriver from 'foxdriver'
 
 ## API
 
-Please see [API docs](/docs)
+- [Foxdriver](#api)
+  * [class: Foxdriver](#foxdriver)
+    + [Foxdriver.attach(options)](#foo)
+    + [Foxdriver.launch([options])](#foo)
+  * [class: Browser](#class-browser)
+    + [browser.close()](#close)
+    + [browser.preference](/docs/api/actors/preference.md)
+    + [browser.actorRegistry](/docs/api/actors/actorRegistry.md)
+    + [browser.addons](/docs/api/actors/addons.md)
+    + [browser.device](/docs/api/actors/device.md)
+    + [browser.heapSnapshotFile](/docs/api/actors/heapSnapshotFile.md)
+  * [class: Tab](#class-browser)
+    + [browser.close()](#close)
+    + [browser.console](/docs/api/actors/console.md)
+    + [browser.memory](/docs/api/actors/memory.md)
+    + [browser.performance](/docs/api/actors/performance.md)
+    + [browser.profiler](/docs/api/actors/profiler.md)
+    + [browser.timeline](/docs/api/actors/timeline.md)
+    + [browser.styleSheets](/docs/api/actors/styleSheets.md)
+    + [browser.cssUsage](/docs/api/actors/cssUsage.md)
+    + [browser.cssProperties](/docs/api/actors/cssProperties.md)
+    + [browser.emulation](/docs/api/actors/emulation.md)
+    + [browser.inspector](/docs/api/actors/inspector.md)
+
+### Foxdriver
+#### Foxdriver.attach(host, port)
+Attaches client to an already running instance.
+
+- `host` `<String>` host where Firefox instance was launched
+- `port` `<Number>` port on which the Firefox instance was launched
+- returns: `<Promise<Object>>`
+    - `tab` `<[Tab]>` list of opened tabs
+    - `browser` `<Browser>` browser instance
+
+#### Foxdriver.launch(options)
+Attaches client to an already running instance.
+
+- `options` `<Object>`
+    - `port` `<Number>` port on which the Firefox instance should get launched
+    - `bin` `<String>` path to Firefox binary (default: OS default path)
+    - `args` `<[String]>` list of arguments pass to `fs.spawn` (default: `[]`)
+- returns: `<Promise<Object>>`
+    - `tab` `<Tab>` opened tab
+    - `browser` `<Browser>` browser instance
+
+#### class: Browser
+##### close()
+Disconnects from the browser instance and closes browser if launched via `launch()` method
+
+#### class: Tab
+##### tab.attach()
+Attaches to this tab
+- returns: `<Promise>` fulfills once request was sent
+
+##### tab.detach()
+Detaches from this tab
+- returns: `<Promise>` fulfills once request was sent
+
+##### tab.reload()
+Reloads current page url.
+- returns: `<Promise>` fulfills once request was sent
+
+##### tab.navigateTo(url)
+Navigates to a certain url
+- `url` `<String>` url to navigate to
+- returns: `<Promise>` fulfills once request was sent
+
+For more information please see [API docs](/docs).
