@@ -1,6 +1,8 @@
-import Foxdriver from '../lib'
 import FirefoxProfile from 'firefox-profile'
+import Geckodriver from 'geckodriver'
 import { remote } from 'webdriverio'
+
+import Foxdriver from '../lib'
 
 let browser
 
@@ -21,6 +23,7 @@ beforeAll(async () => {
 
     browser = remote({
         logLevel: 'verbose',
+        path: '/',
         desiredCapabilities: {
             browserName: 'firefox',
             'moz:firefoxOptions': {
@@ -29,9 +32,11 @@ beforeAll(async () => {
             }
         }
     })
+
+    Geckodriver.start()
 })
 
-test('should be able to attach on a running firefox instance', async () => {
+test.only('should be able to attach on a running firefox instance', async () => {
     // start browser
     await browser.init().url('http://json.org')
 
@@ -46,4 +51,6 @@ test('should be able to attach on a running firefox instance', async () => {
 afterAll(async () => {
     // close session
     await browser.end()
+    // shut down driver
+    Geckodriver.stop()
 })

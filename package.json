@@ -62,6 +62,7 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "firefox-profile": "^1.0.3",
+    "geckodriver": "^1.8.1",
     "jest": "^21.0.2",
     "np": "^2.16.0",
     "npm-run-all": "^4.0.2",
