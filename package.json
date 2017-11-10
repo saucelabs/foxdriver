@@ -44,10 +44,10 @@
     "npmlog": "^4.1.2",
     "safe-buffer": "^5.1.1",
     "tcp-port-used": "^0.1.2",
-    "tmp": "0.0.33"
+    "tmp": "0.0.33",
+    "babel-cli": "^6.26.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
     "babel-plugin-add-module-exports": "^0.2.1",
