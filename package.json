@@ -47,16 +47,18 @@
     "tmp": "0.0.33"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^7.2.3",
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-proposal-function-bind": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-stage-0": "^7.0.0",
+    "@babel/runtime": "^7.4.3",
+    "babel-eslint": "^8.2.6",
     "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-0": "^6.24.1",
-    "babel-runtime": "^6.26.0",
-    "eslint": "^4.4.1",
+    "eslint": "^4.19.1",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-node": "^5.1.1",
@@ -68,7 +70,7 @@
     "np": "^2.16.0",
     "npm-run-all": "^4.0.2",
     "sinon": "^3.2.0",
-    "webdriverio": "^5.4.15"
+    "webdriver": "^5.7.15"
   },
   "jest": {
     "coverageThreshold": {

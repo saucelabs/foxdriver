@@ -2,14 +2,13 @@
   "presets": [
     ["env", {
       "targets": {
-        "node": "6.10.3"
+        "node": "8.11.4"
       }
-    }],
-    "stage-0"
+    }]
   ],
   "plugins": [
-    "transform-runtime",
+    "@babel/plugin-proposal-function-bind",
     "add-module-exports",
-    "transform-class-properties"
+    "@babel/plugin-proposal-class-properties"
   ]
 }

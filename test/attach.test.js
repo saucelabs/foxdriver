@@ -1,6 +1,6 @@
 import FirefoxProfile from 'firefox-profile'
 import Geckodriver from 'geckodriver'
-import { remote } from 'webdriverio'
+import WebDriver from 'webdriver'
 
 import Foxdriver from '../lib'
 
@@ -20,28 +20,26 @@ beforeAll(async () => {
             return resolve(zippedProfile)
         })
     })
-
-    browser = remote({
-        logLevel: 'verbose',
+    Geckodriver.start()
+    browser = await WebDriver.newSession({
+        logLevel: 'trace',
         path: '/',
-        desiredCapabilities: {
+        capabilities: {
             browserName: 'firefox',
             'moz:firefoxOptions': {
-                args: ['--start-debugger-server', '9222'],
+                args: ['--start-debugger-server', '9111'],
                 profile: zippedProfile
             }
         }
     })
-
-    Geckodriver.start()
 })
 
 test.only('should be able to attach on a running firefox instance', async () => {
     // start browser
-    await browser.init().url('http://json.org')
+    await browser.navigateTo('http://json.org')
 
     // attach to browser
-    const { tabs } = await Foxdriver.attach('localhost', 9222)
+    const { tabs } = await Foxdriver.attach('localhost', 9111)
 
     expect(tabs).toHaveLength(1)
     expect(tabs[0].data.url).toEqual('http://json.org/')
@@ -50,7 +48,7 @@ test.only('should be able to attach on a running firefox instance', async () => 
 
 afterAll(async () => {
     // close session
-    await browser.end()
+    await browser.deleteSession()
     // shut down driver
-    Geckodriver.stop()
+    await Geckodriver.stop()
 })

@@ -11,7 +11,7 @@ test('transform script properly', () => {
 
 test('transform script function properly', () => {
     expect(transformEvaluateScript(() => { return 'foobar' }, 'someargs')).toEqual(
-        '(() => {return \'foobar\';}).apply(window, someargs)')
+        '(() => {\n    return \'foobar\';\n  }).apply(window, someargs)')
 })
 
 test('transform arguments properly', () => {

@@ -60,6 +60,16 @@ test('can reload', () => {
     expect(client.makeRequest.calledWith({to: 'server1.conn1.child6/tab1', type: 'reload'})).toEqual(true)
 })
 
+test('can disable cache', () => {
+    tab.cacheDisabled(false)
+    expect(client.makeRequest.calledWith({to: 'server1.conn1.child6/tab1', type: 'reconfigure', options: {cacheDisabled: false}})).toEqual(true)
+})
+
+test('can enable cache', () => {
+    tab.cacheDisabled(true)
+    expect(client.makeRequest.calledWith({to: 'server1.conn1.child6/tab1', type: 'reconfigure', options: {cacheDisabled: true}})).toEqual(true)
+})
+
 test('has available domains registerd', () => {
     jest.mock('../../lib/domains/console', () => jest.fn(() => ({})))
     expect(tab.console).toBeDefined()
