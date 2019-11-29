@@ -80,6 +80,9 @@ test('has available domains registerd', () => {
     jest.mock('../../lib/domains/memory', () => jest.fn(() => ({})))
     expect(tab.memory).toBeDefined()
 
+    jest.mock('../../lib/domains/storage', () => jest.fn(() => ({})))
+    expect(tab.storage).toBeDefined()
+
     jest.mock('../../lib/domains/performance', () => jest.fn(() => ({})))
     expect(tab.performance).toBeDefined()
 
