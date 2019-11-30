@@ -1,6 +1,6 @@
 {
   "name": "@benmalka/foxdriver",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Ben Malka <ben2000567@gmail.com>",
   "description": "Foxdriver is a Node library which provides a high-level API to control Firefox over the Remote Debugging Protocol",
   "license": "Apache-2.0",
@@ -26,7 +26,7 @@
     "build": "run-s clean compile",
     "ci": "run-s eslint test:unit:cover",
     "clean": "rm -rf ./build",
-    "compile": "babel lib/ -d build/ --ignore config --source-maps inline",
+    "compile": "babel lib/ -d build/ --copy-files --ignore config --source-maps inline",
     "eslint": "eslint ./lib/**/*.js",
     "release": "np patch",
     "release:patch": "np patch",
