@@ -1,13 +1,13 @@
 {
-  "name": "foxdriver",
-  "version": "0.1.0",
-  "author": "Christian Bromann <christian@saucelabs.com>",
+  "name": "@benmalka/foxdriver",
+  "version": "0.2.3",
+  "author": "Ben Malka <ben2000567@gmail.com>",
   "description": "Foxdriver is a Node library which provides a high-level API to control Firefox over the Remote Debugging Protocol",
   "license": "Apache-2.0",
-  "homepage": "https://github.com/saucelabs/foxdriver#readme",
+  "homepage": "https://github.com/benmalka/foxdriver#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/saucelabs/foxdriver.git"
+    "url": "git+https://github.com/benmalka/foxdriver.git"
   },
   "keywords": [
     "firefox",
@@ -19,14 +19,14 @@
     "devtools"
   ],
   "bugs": {
-    "url": "https://github.com/saucelabs/foxdriver/issues"
+    "url": "https://github.com/benmalka/foxdriver/issues"
   },
   "main": "build/index.js",
   "scripts": {
     "build": "run-s clean compile",
     "ci": "run-s eslint test:unit:cover",
     "clean": "rm -rf ./build",
-    "compile": "babel lib/ -d build/ --ignore config --source-maps inline",
+    "compile": "babel lib/ -d build/ --copy-files --ignore config --source-maps inline",
     "eslint": "eslint ./lib/**/*.js",
     "release": "np patch",
     "release:patch": "np patch",

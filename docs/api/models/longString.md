@@ -3,7 +3,7 @@
 ### Table of Contents
 
 -   [LongString](#longstring)
-    -   [substring](#substring)
+-   [substring](#substring)
 
 ## LongString
 
