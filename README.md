@@ -10,9 +10,9 @@ Foxdriver
 To use Foxdriver in your project, run:
 
 ```sh
-$ yarn add foxdriver
+$ yarn add @benmalka/foxdriver
 # or
-$ npm i foxdriver
+$ npm i @benmalka/foxdriver
 ```
 
 ### Usage
@@ -22,23 +22,23 @@ The Firefox Remote Debugging Protocol consists of multiple actors that provide d
 __Example__ - opening page and get console.logs
 
 ```js
-import Foxdriver from 'foxdriver'
+import Foxdriver from '@benmalka/foxdriver'
 
 (async () => {
     const { browser, tab } = await Foxdriver.launch({
         url: 'https://www.mozilla.org/en-US'
-    })
+    });
 
     // enable actor
-    await tab.console.startListeners()
+    await tab.console.startListeners();
     // wait until page is loaded
-    await new Promise((resolve) => setTimeout(resolve, 3000))
+    await new Promise((resolve) => setTimeout(resolve, 3000));
     // receive logs and page errors
-    const logs = await tab.console.getCachedMessages()
-    console.log(logs)
+    const logs = await tab.console.getCachedMessages();
+    console.log(logs);
 
     // close browser
-    browser.close()
+    browser.close();
 })()
 ```
 
@@ -51,11 +51,11 @@ You can also attach yourself to an already running Firefox browser. This require
 To attach yourself to the browser you then need to create a Foxdriver instance with the correct port and host and call the `connect()` method:
 
 ```js
-import Foxdriver from 'foxdriver'
+import Foxdriver from '@benmalka/foxdriver'
 
 (async () => {
-    const { browser, tab } = await Foxdriver.attach('localhost', 9222)
-    const preferences = await browser.preference.getAllPrefs()
+    const { browser, tab } = await Foxdriver.attach('localhost', 9222);
+    const preferences = await browser.preference.getAllPrefs();
 
     // ...
 })()
@@ -78,8 +78,12 @@ import Foxdriver from 'foxdriver'
     + [tab.attach()](#tabattach)
     + [tab.detach()](#tabdetach)
     + [tab.reload()](#tabreload)
+    + [tab.cacheDisabled(disable)](#tabcachedisableddisable)
     + [tab.navigateTo(url)](#tabnavigatetourl)
+	+ [tab.onTabNavigated(callback)](#tabontabnavigatedcallback)
     + [tab.console](/docs/api/actors/console.md)
+	+ [tab.network](/docs/api/actors/network.md)
+	+ [tab.storage](/docs/api/actors/storage.md)
     + [tab.memory](/docs/api/actors/memory.md)
     + [tab.performance](/docs/api/actors/performance.md)
     + [tab.profiler](/docs/api/actors/profiler.md)
@@ -128,9 +132,18 @@ Detaches from this tab
 Reloads current page url.
 - returns: `<Promise>` fulfills once request was sent
 
+##### tab.cacheDisabled(disable)
+Disable cache.
+- `disable` `<Boolean>` if true, caching is disbled
+- returns: `<Promise>` fulfills once request was sent
+
 ##### tab.navigateTo(url)
 Navigates to a certain url
 - `url` `<String>` url to navigate to
 - returns: `<Promise>` fulfills once request was sent
+
+##### tab.onTabNavigated(callback)
+Event fired on tab navigation end
+- `callback` `<Function>` to be called on event
 
 For more information please see [API docs](/docs).
