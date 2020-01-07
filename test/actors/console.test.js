@@ -75,6 +75,15 @@ it('can evaluate JS', () => {
     })).toEqual(true)
 })
 
+it('can evaluate JS async', () => {
+    consoleActor.evaluateJSAsync((a, b, c) => a + b + c, 1, 2, 3)
+    expect(client.makeRequest.calledWith({
+        to: 'server1.conn1.child6/console1',
+        type: 'evaluateJSAsync',
+        text: '((a, b, c) => a + b + c).apply(window, [1,2,3])'
+    })).toEqual(true)
+})
+
 it('rejects if js throws error', async () => {
     client.makeRequest.returns({
         exception: 'foobar',
