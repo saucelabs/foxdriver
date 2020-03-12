@@ -10,8 +10,6 @@ Foxdriver
 To use Foxdriver in your project, run:
 
 ```sh
-$ yarn add @benmalka/foxdriver
-# or
 $ npm i @benmalka/foxdriver
 ```
 
