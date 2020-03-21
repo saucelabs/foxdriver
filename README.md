@@ -2,6 +2,7 @@ Foxdriver
 =========
 
 > Foxdriver is a Node library which provides a high-level API to control Firefox over the Remote Debugging Protocol.
+> Version 0.4.0 now supports Firefox v75
 
 ## Getting Started
 

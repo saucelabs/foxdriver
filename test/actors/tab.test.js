@@ -107,3 +107,8 @@ test('has available domains registerd', () => {
     jest.mock('../../lib/domains/inspector', () => jest.fn(() => ({})))
     expect(tab.inspector).toBeDefined()
 })
+
+test('can get target: Firefox 75', () => {
+    tab.getTarget()
+    expect(client.makeRequest.calledWith({to: 'server1.conn1.child6/tab1', type: 'getTarget'})).toEqual(true)
+})
