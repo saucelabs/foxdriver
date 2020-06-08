@@ -1,15 +1,21 @@
 {
   "presets": [
-    ["env", {
+    ["@babel/preset-env", {
       "targets": {
-        "node": "6.10.3"
+        "node": "8"
       }
-    }],
-    "stage-0"
+    }]
   ],
   "plugins": [
-    "transform-runtime",
     "add-module-exports",
-    "transform-class-properties"
-  ]
+    "transform-class-properties",
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-proposal-function-bind",
+    "@babel/plugin-proposal-class-properties"
+  ],
+  "env": {
+    "test": {
+      "plugins": ["rewire"]
+    }
+  }
 }

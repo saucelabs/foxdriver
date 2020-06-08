@@ -9,6 +9,7 @@ let browser
 jest.setTimeout(30000)
 
 beforeAll(async () => {
+    Geckodriver.start()
     const fp = new FirefoxProfile()
     fp.setPreference('devtools.debugger.remote-enabled', true)
     fp.setPreference('devtools.chrome.enabled', true)
@@ -21,36 +22,35 @@ beforeAll(async () => {
         })
     })
 
-    browser = remote({
-        logLevel: 'verbose',
-        path: '/',
-        desiredCapabilities: {
+    browser = await remote({
+        logLevel: 'trace',
+        capabilities: {
             browserName: 'firefox',
             'moz:firefoxOptions': {
-                args: ['--start-debugger-server', '9222'],
+                args: [
+                    '-start-debugger-server', '9222'
+                ],
                 profile: zippedProfile
             }
         }
     })
-
-    Geckodriver.start()
 })
 
-test.only('should be able to attach on a running firefox instance', async () => {
+test('should be able to attach on a running firefox instance', async () => {
     // start browser
-    await browser.init().url('http://json.org')
+    await browser.url('https://json.org')
 
     // attach to browser
     const { tabs } = await Foxdriver.attach('localhost', 9222)
 
     expect(tabs).toHaveLength(1)
-    expect(tabs[0].data.url).toEqual('http://json.org/')
+    expect(tabs[0].data.url).toEqual('https://json.org/')
     expect(tabs[0].data.title).toEqual('JSON')
 })
 
 afterAll(async () => {
     // close session
-    await browser.end()
+    await browser.deleteSession()
     // shut down driver
     Geckodriver.stop()
 })
