@@ -34,8 +34,8 @@
     "release:major": "np major",
     "test": "run-p test:*",
     "test:lint": "eslint ./lib ./test",
-    "test:unit": "jest",
-    "test:unit:cover": "jest --coverage",
+    "test:unit": "BABEL_ENV=test jest",
+    "test:unit:cover": "BABEL_ENV=test jest --coverage",
     "watch": "npm run compile -- --watch"
   },
   "dependencies": {
@@ -47,27 +47,29 @@
     "tmp": "0.0.33"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^7.2.3",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-0": "^6.24.1",
-    "babel-runtime": "^6.26.0",
-    "eslint": "^4.4.1",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-node": "^5.1.1",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/plugin-proposal-function-bind": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/register": "^7.0.0",
+    "@babel/runtime": "^7.1.5",
+    "babel-eslint": "^9.0.0",
+    "babel-jest": "^24.7.1",
+    "babel-plugin-rewire": "^1.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^9.2.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
     "firefox-profile": "^1.2.0",
-    "geckodriver": "^1.14.1",
-    "jest": "^24.1.0",
+    "geckodriver": "^1.19.1",
+    "jest": "^24.7.1",
     "np": "^2.16.0",
     "npm-run-all": "^4.0.2",
-    "sinon": "^3.2.0",
+    "sinon": "^3.3.0",
     "webdriverio": "^5.4.15"
   },
   "jest": {
@@ -78,6 +80,10 @@
         "lines": 89,
         "statements": 89
       }
-    }
+    },
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "node_modules/"
+    ]
   }
 }
