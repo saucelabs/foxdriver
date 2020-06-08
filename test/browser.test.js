@@ -28,9 +28,8 @@ test('should call getTabActors if consoleActor is missing from listTabs', async 
         }
     });
 
-    const tabList = await browser.listTabs()
+    await browser.listTabs()
     expect(getTabActorsSpy).toHaveBeenCalledTimes(1)
-    expect(tabList).toMatchSnapshot()
 })
 
 test('should not call getTabActors if consoleActor presents', async () => {
@@ -50,7 +49,6 @@ test('should not call getTabActors if consoleActor presents', async () => {
         }
     });
 
-    const tabList = await browser.listTabs()
+    await browser.listTabs()
     expect(getTabActorsSpy).not.toHaveBeenCalled()
-    expect(tabList).toMatchSnapshot()
 })
