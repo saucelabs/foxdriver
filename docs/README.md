@@ -18,7 +18,7 @@ The Firefox Remote Debugging Protocol consists of multiple actors that provide d
 __Example__ - opening page and get console.logs
 
 ```js
-import Foxdriver from 'foxdriver'
+import Foxdriver from '@benmalka/foxdriver'
 
 (async () => {
     const { browser, tab } = await Foxdriver.launch({
@@ -47,7 +47,7 @@ You can also attach yourself to an already running Firefox browser. This require
 To attach yourself to the browser you then need to create a Foxdriver instance with the correct port and host and call the `connect()` method:
 
 ```js
-import Foxdriver from 'foxdriver'
+import Foxdriver from '@benmalka/foxdriver'
 
 (async () => {
     const { browser, tab } = await Foxdriver.attach('localhost', 9222)

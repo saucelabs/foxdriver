@@ -13,3 +13,18 @@ test('should be able to launch and attach to Firefox', async () => {
 
     await browser.close()
 })
+
+test('should be able to launch and attach to Firefox with overriding default prefs', async () => {
+    const { browser, tab } = await Foxdriver.launch({
+        url: 'https://www.mozilla.org/en-US',
+        customPrefs: {
+            'devtools.chrome.enabled': false
+        }
+    })
+
+    expect(browser).toBeDefined()
+    expect(tab).toBeDefined()
+    expect(tab.data.url).toEqual('about:blank')
+
+    await browser.close()
+})

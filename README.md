@@ -2,7 +2,7 @@ Foxdriver
 =========
 
 > Foxdriver is a Node library which provides a high-level API to control Firefox over the Remote Debugging Protocol.
-> Version 0.4.1 now supports Firefox v77
+> Version 0.5.0 now supports custom preferences before launching the browser
 
 ## Getting Started
 
@@ -110,6 +110,10 @@ Attaches client to an already running instance.
     - `port` `<Number>` port on which the Firefox instance should get launched
     - `bin` `<String>` path to Firefox binary (default: OS default path)
     - `args` `<[String]>` list of arguments pass to `fs.spawn` (default: `[]`)
+    - `customPrefs` `<Object>` you may set your own preferences before the browser is being launched by setting key value pairs of prefs. Note that it is not possible to override the required prefs, i.e.
+        - `devtools.chrome.enabled: true`
+        - `devtools.debugger.prompt-connection: false`
+        - `devtools.debugger.remote-enabled: true`
 - returns: `<Promise<Object>>`
     - `tab` `<Tab>` opened tab
     - `browser` `<Browser>` browser instance
