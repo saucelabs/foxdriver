@@ -2,7 +2,7 @@ Foxdriver
 =========
 
 > Foxdriver is a Node library which provides a high-level API to control Firefox over the Remote Debugging Protocol.
-> Version 0.5.0 now supports custom preferences before launching the browser
+> Version 0.6.0 now supports adding custom profile files (i.e. cert9.db) before launching the browser
 
 ## Getting Started
 
@@ -114,6 +114,7 @@ Attaches client to an already running instance.
         - `devtools.chrome.enabled: true`
         - `devtools.debugger.prompt-connection: false`
         - `devtools.debugger.remote-enabled: true`
+    - `customProfileFiles` `<[String]>` A array of **absolute** file paths to be copied into the randomaly generated profile folder. This is very helpful when working with self-signed certificates in firefox. See more here [How to use self-signed certificate in Firefox](/docs/general/how-to-use-self-sigend.md)
 - returns: `<Promise<Object>>`
     - `tab` `<Tab>` opened tab
     - `browser` `<Browser>` browser instance
