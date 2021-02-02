@@ -1,14 +1,16 @@
 {
   "presets": [
-    ["env", {
+    ["@babel/preset-env", {
       "targets": {
-        "node": "8.11.4"
+        "node": "8"
       }
     }]
   ],
   "plugins": [
-    "@babel/plugin-proposal-function-bind",
     "add-module-exports",
+    "transform-class-properties",
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-proposal-function-bind",
     "@babel/plugin-proposal-class-properties"
   ]
 }

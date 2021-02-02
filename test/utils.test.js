@@ -10,8 +10,7 @@ test('transform script properly', () => {
 })
 
 test('transform script function properly', () => {
-    expect(transformEvaluateScript(() => { return 'foobar' }, 'someargs')).toEqual(
-        '(() => {\n    return \'foobar\';\n  }).apply(window, someargs)')
+    expect(transformEvaluateScript(() => { return 'foobar' }, 'someargs')).toMatchSnapshot()
 })
 
 test('transform arguments properly', () => {

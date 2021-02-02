@@ -1,8 +1,7 @@
-Foxdriver
+Foxdriver [![Build Status](https://travis-ci.org/saucelabs/foxdriver.svg?branch=master)](https://travis-ci.org/saucelabs/foxdriver)
 =========
 
 > Foxdriver is a Node library which provides a high-level API to control Firefox over the Remote Debugging Protocol.
-> Version 0.6.0 now supports adding custom profile files (i.e. cert9.db) before launching the browser
 
 ## Getting Started
 
@@ -11,7 +10,7 @@ Foxdriver
 To use Foxdriver in your project, run:
 
 ```sh
-$ npm i @benmalka/foxdriver
+$ npm i foxdriver
 ```
 
 ### Usage
@@ -21,7 +20,7 @@ The Firefox Remote Debugging Protocol consists of multiple actors that provide d
 __Example__ - opening page and get console.logs
 
 ```js
-import Foxdriver from '@benmalka/foxdriver'
+import Foxdriver from 'foxdriver'
 
 (async () => {
     const { browser, tab } = await Foxdriver.launch({
@@ -50,7 +49,7 @@ You can also attach yourself to an already running Firefox browser. This require
 To attach yourself to the browser you then need to create a Foxdriver instance with the correct port and host and call the `connect()` method:
 
 ```js
-import Foxdriver from '@benmalka/foxdriver'
+import Foxdriver from 'foxdriver'
 
 (async () => {
     const { browser, tab } = await Foxdriver.attach('localhost', 9222);

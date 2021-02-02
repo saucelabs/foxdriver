@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transform script function properly 1`] = `
+"(() => {
+    return 'foobar';
+  }).apply(window, someargs)"
+`;
