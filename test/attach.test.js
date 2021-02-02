@@ -1,6 +1,6 @@
 import FirefoxProfile from 'firefox-profile'
 import Geckodriver from 'geckodriver'
-import WebDriver from 'webdriver'
+import { remote } from 'webdriverio'
 
 import Foxdriver from '../lib'
 
@@ -41,7 +41,7 @@ test('should be able to attach on a running firefox instance', async () => {
     await browser.url('https://json.org')
 
     // attach to browser
-    const { tabs } = await Foxdriver.attach('localhost', 9111)
+    const { tabs } = await Foxdriver.attach('localhost', 9222)
 
     expect(tabs).toHaveLength(1)
     expect(tabs[0].data.url).toEqual('https://json.org/')
