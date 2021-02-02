@@ -4,10 +4,10 @@
   "author": "Christian Bromann <christian@saucelabs.com>",
   "description": "Foxdriver is a Node library which provides a high-level API to control Firefox over the Remote Debugging Protocol",
   "license": "Apache-2.0",
-  "homepage": "https://github.com/benmalka/foxdriver#readme",
+  "homepage": "https://github.com/saucelabs/foxdriver#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/benmalka/foxdriver.git"
+    "url": "git+https://github.com/saucelabs/foxdriver.git"
   },
   "keywords": [
     "firefox",
@@ -19,7 +19,7 @@
     "devtools"
   ],
   "bugs": {
-    "url": "https://github.com/benmalka/foxdriver/issues"
+    "url": "https://github.com/saucelabs/foxdriver/issues"
   },
   "main": "build/index.js",
   "scripts": {
