@@ -1,4 +1,4 @@
-Foxdriver [![Build Status](https://travis-ci.org/saucelabs/foxdriver.svg?branch=master)](https://travis-ci.org/saucelabs/foxdriver)
+Foxdriver ![Foxdriver test pipeline](https://github.com/saucelabs/foxdriver/workflows/Foxdriver%20test%20pipeline/badge.svg)
 =========
 
 > Foxdriver is a Node library which provides a high-level API to control Firefox over the Remote Debugging Protocol.
