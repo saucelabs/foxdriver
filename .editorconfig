@@ -14,5 +14,5 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[{.babelrc,.eslintrc,.travis.yml,*.json}]
+[{.babelrc,.eslintrc,*.yml,*.json}]
 indent_size = 2

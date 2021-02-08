@@ -62,4 +62,5 @@ build
 
 # debug files
 /*.js
+!babel.config.js
 .DS_Store
