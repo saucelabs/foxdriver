@@ -1,6 +1,6 @@
 {
   "name": "foxdriver",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Christian Bromann <christian@saucelabs.com>",
   "description": "Foxdriver is a Node library which provides a high-level API to control Firefox over the Remote Debugging Protocol",
   "license": "Apache-2.0",
