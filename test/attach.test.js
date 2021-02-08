@@ -44,7 +44,7 @@ test('should be able to attach on a running firefox instance', async () => {
     const { tabs } = await Foxdriver.attach('localhost', 9222)
 
     expect(tabs).toHaveLength(1)
-    expect(tabs[0].data.url).toEqual('https://json.org/')
+    expect(tabs[0].data.url).toEqual('https://json.org/json-en.html')
     expect(tabs[0].data.title).toEqual('JSON')
 })
 
