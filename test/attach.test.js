@@ -52,5 +52,5 @@ afterAll(async () => {
     // close session
     await browser.deleteSession()
     // shut down driver
-    Geckodriver.stop()
+    await Geckodriver.stop()
 })

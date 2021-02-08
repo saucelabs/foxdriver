@@ -10,8 +10,6 @@ Foxdriver [![Build Status](https://travis-ci.org/saucelabs/foxdriver.svg?branch=
 To use Foxdriver in your project, run:
 
 ```sh
-$ yarn add foxdriver
-# or
 $ npm i foxdriver
 ```
 
@@ -27,18 +25,18 @@ import Foxdriver from 'foxdriver'
 (async () => {
     const { browser, tab } = await Foxdriver.launch({
         url: 'https://www.mozilla.org/en-US'
-    })
+    });
 
     // enable actor
-    await tab.console.startListeners()
+    await tab.console.startListeners();
     // wait until page is loaded
-    await new Promise((resolve) => setTimeout(resolve, 3000))
+    await new Promise((resolve) => setTimeout(resolve, 3000));
     // receive logs and page errors
-    const logs = await tab.console.getCachedMessages()
-    console.log(logs)
+    const logs = await tab.console.getCachedMessages();
+    console.log(logs);
 
     // close browser
-    browser.close()
+    browser.close();
 })()
 ```
 
@@ -54,8 +52,8 @@ To attach yourself to the browser you then need to create a Foxdriver instance w
 import Foxdriver from 'foxdriver'
 
 (async () => {
-    const { browser, tab } = await Foxdriver.attach('localhost', 9222)
-    const preferences = await browser.preference.getAllPrefs()
+    const { browser, tab } = await Foxdriver.attach('localhost', 9222);
+    const preferences = await browser.preference.getAllPrefs();
 
     // ...
 })()
@@ -78,8 +76,12 @@ import Foxdriver from 'foxdriver'
     + [tab.attach()](#tabattach)
     + [tab.detach()](#tabdetach)
     + [tab.reload()](#tabreload)
+    + [tab.cacheDisabled(disable)](#tabcachedisableddisable)
     + [tab.navigateTo(url)](#tabnavigatetourl)
+	+ [tab.onTabNavigated(callback)](#tabontabnavigatedcallback)
     + [tab.console](/docs/api/actors/console.md)
+	+ [tab.network](/docs/api/actors/network.md)
+	+ [tab.storage](/docs/api/actors/storage.md)
     + [tab.memory](/docs/api/actors/memory.md)
     + [tab.performance](/docs/api/actors/performance.md)
     + [tab.profiler](/docs/api/actors/profiler.md)
@@ -107,6 +109,11 @@ Attaches client to an already running instance.
     - `port` `<Number>` port on which the Firefox instance should get launched
     - `bin` `<String>` path to Firefox binary (default: OS default path)
     - `args` `<[String]>` list of arguments pass to `fs.spawn` (default: `[]`)
+    - `customPrefs` `<Object>` you may set your own preferences before the browser is being launched by setting key value pairs of prefs. Note that it is not possible to override the required prefs, i.e.
+        - `devtools.chrome.enabled: true`
+        - `devtools.debugger.prompt-connection: false`
+        - `devtools.debugger.remote-enabled: true`
+    - `customProfileFiles` `<[String]>` A array of **absolute** file paths to be copied into the randomaly generated profile folder. This is very helpful when working with self-signed certificates in firefox. See more here [How to use self-signed certificate in Firefox](/docs/general/how-to-use-self-sigend.md)
 - returns: `<Promise<Object>>`
     - `tab` `<Tab>` opened tab
     - `browser` `<Browser>` browser instance
@@ -128,9 +135,18 @@ Detaches from this tab
 Reloads current page url.
 - returns: `<Promise>` fulfills once request was sent
 
+##### tab.cacheDisabled(disable)
+Disable cache.
+- `disable` `<Boolean>` if true, caching is disbled
+- returns: `<Promise>` fulfills once request was sent
+
 ##### tab.navigateTo(url)
 Navigates to a certain url
 - `url` `<String>` url to navigate to
 - returns: `<Promise>` fulfills once request was sent
+
+##### tab.onTabNavigated(callback)
+Event fired on tab navigation end
+- `callback` `<Function>` to be called on event
 
 For more information please see [API docs](/docs).

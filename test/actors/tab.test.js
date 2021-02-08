@@ -60,6 +60,16 @@ test('can reload', () => {
     expect(client.makeRequest.calledWith({to: 'server1.conn1.child6/tab1', type: 'reload'})).toEqual(true)
 })
 
+test('can disable cache', () => {
+    tab.cacheDisabled(false)
+    expect(client.makeRequest.calledWith({to: 'server1.conn1.child6/tab1', type: 'reconfigure', options: {cacheDisabled: false}})).toEqual(true)
+})
+
+test('can enable cache', () => {
+    tab.cacheDisabled(true)
+    expect(client.makeRequest.calledWith({to: 'server1.conn1.child6/tab1', type: 'reconfigure', options: {cacheDisabled: true}})).toEqual(true)
+})
+
 test('has available domains registerd', () => {
     jest.mock('../../lib/domains/console', () => jest.fn(() => ({})))
     expect(tab.console).toBeDefined()
@@ -69,6 +79,9 @@ test('has available domains registerd', () => {
 
     jest.mock('../../lib/domains/memory', () => jest.fn(() => ({})))
     expect(tab.memory).toBeDefined()
+
+    jest.mock('../../lib/domains/storage', () => jest.fn(() => ({})))
+    expect(tab.storage).toBeDefined()
 
     jest.mock('../../lib/domains/performance', () => jest.fn(() => ({})))
     expect(tab.performance).toBeDefined()
@@ -93,4 +106,9 @@ test('has available domains registerd', () => {
 
     jest.mock('../../lib/domains/inspector', () => jest.fn(() => ({})))
     expect(tab.inspector).toBeDefined()
+})
+
+test('can get target: Firefox 75', () => {
+    tab.getTarget()
+    expect(client.makeRequest.calledWith({to: 'server1.conn1.child6/tab1', type: 'getTarget'})).toEqual(true)
 })

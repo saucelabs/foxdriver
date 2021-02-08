@@ -26,7 +26,7 @@
     "build": "run-s clean compile",
     "ci": "run-s eslint test:unit:cover",
     "clean": "rm -rf ./build",
-    "compile": "babel lib/ -d build/ --ignore config --source-maps inline",
+    "compile": "babel lib/ -d build/ --copy-files --ignore config --source-maps inline",
     "eslint": "eslint ./lib/**/*.js",
     "release": "np patch",
     "release:patch": "np patch",
