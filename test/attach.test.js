@@ -39,12 +39,13 @@ beforeAll(async () => {
 test('should be able to attach on a running firefox instance', async () => {
     // start browser
     await browser.url('https://json.org')
+    await browser.pause(3000)
 
     // attach to browser
     const { tabs } = await Foxdriver.attach('localhost', 9222)
 
     expect(tabs).toHaveLength(1)
-    expect(tabs[0].data.url).toContain('json.org')
+    expect(tabs[0].data.url).toBe('https://www.json.org/json-en.html')
     expect(tabs[0].data.title).toEqual('JSON')
 })
 
