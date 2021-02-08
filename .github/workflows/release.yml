@@ -24,8 +24,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - run: npm run build
-      - name: Run tests
-        run: npm test
+      - name: Run Tests
+        uses: GabrielBB/xvfb-action@v1
+        with:
+          run: npm run ci
       - name: Upload built package
         uses: actions/upload-artifact@v2
         with:
