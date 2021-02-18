@@ -27,6 +27,8 @@ import Foxdriver from 'foxdriver'
         url: 'https://www.mozilla.org/en-US'
     });
 
+    // attach to created tab
+    await tab.attach();
     // enable actor
     await tab.console.startListeners();
     // wait until page is loaded
