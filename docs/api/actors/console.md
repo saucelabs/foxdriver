@@ -6,7 +6,8 @@
 -   [stopListeners](#stoplisteners)
 -   [getCachedMessages](#getcachedmessages)
 -   [clearMessagesCache](#clearmessagescache)
--   [evaluateJS](#evaluatejs)
+-   [evaluateJS](#evaluatejs) *(Deprecated)*
+-   [evaluateJSAsync](#evaluatejsasync)
 -   [getPreferences](#getpreferences)
 -   [setPreferences](#setpreferences)
 -   [autocomplete](#autocomplete)
@@ -49,6 +50,21 @@ Clear the cache of messages (console API calls only).
 Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)>** request response
 
 ## evaluateJS
+
+Evaluate a JavaScript expression.
+
+> Starting from FF72, this method becomes deprecated.
+> 
+> Please use [evaluateJSAsync](#evaluatejsasync) instead
+
+**Parameters**
+
+-   `script` **([String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function))** js code to evaluate
+-   `args` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** arguments to pass to the function
+
+Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object), [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)>** result of the js function or an exception if script fails
+
+## evaluateJSAsync
 
 Evaluate a JavaScript expression.
 
